@@ -1,0 +1,29 @@
+main {
+    display: flex;
+    justify-content: center;
+}
+
+aside {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.section {
+    border: 1px solid black;
+    width: 33%;
+    margin: 10px;
+    padding: 10px;
+}
+
+.input {
+    margin: 10px;
+}
+
+.requirements {
+    text-align: center;
+}
+
+.requirements {
+    background: rgb(224, 183, 106);
+}
