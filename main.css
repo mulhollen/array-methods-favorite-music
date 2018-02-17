@@ -3,12 +3,6 @@ main {
     justify-content: center;
 }
 
-aside {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
-
 .section {
     border: 1px solid black;
     width: 33%;

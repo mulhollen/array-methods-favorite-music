@@ -45,6 +45,3 @@ For each output element arrange the corresponding data as follows:
 - Output horizontally exactly as the data was added, inverted, separated by |.
 
 - Each output area should be separated by a headline tag.
-
-Bonus
-Handle both upper and lowercase inputs. The way this is accomplished is up to you. Additional array methods may have to be employed to complete this bonus item.

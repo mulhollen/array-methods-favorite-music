@@ -1,4 +1,5 @@
 
+
 // arrays
 const songs = ["Whole Wide World", "What Is Life", "Come and Get Your Love", "Sea of Love", "LOYALTY", "God Only Knows", "She's A Rainbow", "Blackbird", "All We Got", "Redbone"];
 const artists = ["Cage The Elephant", "George Harrison", "Redbone", "Cat Power", "Kendrick Lamar", "The Beach Boys", "The Rolling Stones", "The Beatles", "Chance The Rapper", "Childish Gambino"];
@@ -8,6 +9,10 @@ const albums = ["Unpeeled", "All Things Must Pass", "Wovoka", "Moon Pix", "DAMN.
 const songID = document.getElementById("songID");
 const artistID = document.getElementById("artistID");
 const albumID = document.getElementById("albumID");
+
+const songIDTwo = document.getElementById("songIDTwo");
+const artistIDTwo = document.getElementById("artistIDTwo");
+const albumIDTwo = document.getElementById("albumIDTwo");
 
 const songDiv = document.getElementById("songs");
 const artistDiv = document.getElementById("artists");
@@ -42,58 +47,62 @@ const hiartistDiv = document.getElementById("artistDivHI");
 const hialbumDiv = document.getElementById("albumDivHI");
 
 // functions
-var newSong = function(){
+var newSong = function () {
     songs.push(songID.value);
-    display(songs, songDiv);
-
+    songs.push(songIDTwo.value);
     artists.unshift(artistID.value);
-    display(artists, artistDiv);
-
+    artists.unshift(artistIDTwo.value);
     albums.push(albumID.value);
-    display(albums, albumDiv);
+    albums.push(albumIDTwo.value);
+    build();
+    
+    console.log("songs", songs);
+    console.log("artists", artists);
+    console.log("albums", albums);
 };
-
-var display = function(array, div){
-    div.innerHTML = "";
-    div.innerHTML += array;
-};
-
 
 // set DOM
-songDiv.innerHTML = songs.join('<br>');
-artistDiv.innerHTML = artists.join('<br>');
-albumDiv.innerHTML = albums.join('<br>');
+var build = function(){
 
-songsR.innerHTML = songs.reverse().join('<br>');
-artistsR.innerHTML = artists.reverse().join('<br>');
-albumsR.innerHTML = albums.reverse().join('<br>');
+    songDiv.innerHTML = songs.join('<br>');
+    artistDiv.innerHTML = artists.join('<br>');
+    albumDiv.innerHTML = albums.join('<br>');
 
-vDecendingAlphaSongs.innerHTML = songs.sort(function (a, b) { return b - a }).join('<br>');
-vDecendingAlphaArtists.innerHTML = artists.sort(function (a, b) { return b - a }).join('<br>');
-vDecendingAlphaAlbums.innerHTML = albums.sort(function (a, b) { return b - a }).join('<br>');
+    hsongDiv.innerHTML = songs.join(' : ');
+    hartistDiv.innerHTML = artists.join(' : ');
+    halbumDiv.innerHTML = albums.join(' : ');
 
-vAscendingAlphaSongs.innerHTML = songs.sort().join('<br>');
-vAscendingAlphaArtists.innerHTML = artists.sort().join('<br>');
-vAscendingAlphaAlbums.innerHTML = albums.sort().join('<br>');
+    songsR.innerHTML = songs.reverse().join('<br>');
+    artistsR.innerHTML = artists.reverse().join('<br>');
+    albumsR.innerHTML = albums.reverse().join('<br>');
 
-hDecendingAlphaSongs.innerHTML = songs.sort(function (a, b) { return b - a }).join(', ');
-hDecendingAlphaArtists.innerHTML = artists.sort(function (a, b) { return b - a }).join(', ');
-hDecendingAlphaAlbums.innerHTML = albums.sort(function (a, b) { return b - a }).join(', ');
+    hisongDiv.innerHTML = songs.join(' | ');
+    hiartistDiv.innerHTML = artists.join(' | ');
+    hialbumDiv.innerHTML = albums.join(' | ');
 
-hAscendingAlphaSongs.innerHTML = songs.sort().join(' >> ');
-hAscendingAlphaArtists.innerHTML = artists.sort().join(' >> ');
-hAscendingAlphaAlbums.innerHTML = albums.sort().join(' >> ');
+    vDecendingAlphaSongs.innerHTML = songs.sort().reverse().join('<br>');
+    vDecendingAlphaArtists.innerHTML = artists.sort().reverse().join('<br>');
+    vDecendingAlphaAlbums.innerHTML = albums.sort().reverse().join('<br>');
 
-hsongDiv.innerHTML = songs.join(' : ');
-hartistDiv.innerHTML = artists.join(' : ');
-halbumDiv.innerHTML = albums.join(' : ');
+    vAscendingAlphaSongs.innerHTML = songs.sort().join('<br>');
+    vAscendingAlphaArtists.innerHTML = artists.sort().join('<br>');
+    vAscendingAlphaAlbums.innerHTML = albums.sort().join('<br>');
 
-hisongDiv.innerHTML = songs.join(' | ');
-hiartistDiv.innerHTML = artists.join(' | ');
-hialbumDiv.innerHTML = albums.join(' | ');
+    hDecendingAlphaSongs.innerHTML = songs.sort().reverse().join(', ');
+    hDecendingAlphaArtists.innerHTML = artists.sort().reverse().join(', ');
+    hDecendingAlphaAlbums.innerHTML = albums.sort().reverse().join(', ');
 
+    hAscendingAlphaSongs.innerHTML = songs.sort().join(' >> ');
+    hAscendingAlphaArtists.innerHTML = artists.sort().join(' >> ');
+    hAscendingAlphaAlbums.innerHTML = albums.sort().join(' >> ');
+
+    // songs.reverse();
+    // albums.reverse();
+    // artists.reverse();
+}
+
+build();
 
 // event listeners
 // on click function
 document.getElementById("add-new-song").addEventListener("click", newSong);
-
